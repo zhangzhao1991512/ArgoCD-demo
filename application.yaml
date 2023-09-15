@@ -4,13 +4,15 @@ metadata:
   name: myapp-argo-application
   namespace: argocd
 spec:
+# if not specified, an application belongs to default project
   project: default
 
   source:
-    repoURL: https://gitlab.com/nanuchi/argocd-app-config.git
+    repoURL: https://github.com/zhangzhao1991512/ArgoCD-demo.git
     targetRevision: HEAD
     path: dev
   destination: 
+  # the internal service name of kube api server (we are running argocd inside the cluster)
     server: https://kubernetes.default.svc
     namespace: myapp
 
